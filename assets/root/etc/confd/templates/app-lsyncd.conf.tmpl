@@ -1,4 +1,4 @@
-{{$data := json (getenv "SYNC_BLOCK_JSON" (getv /codesync/sync/json-conf "{"syncblock":[{"source":"/project-a-target","target":"/project-a-target","owner_and_group":"root:root","access_modes":"755","interval":"2"},{"source":"/project-b-source","target":"/project-b-target","owner_and_group":"root:root","access_modes":"755","interval":"2"}}]}'")}}
+{{$data := json (getenv "SYNC_BLOCK_JSON")}}
 {{range $data.syncblock}}
    source= {{.source}}
    target= {{.target}}

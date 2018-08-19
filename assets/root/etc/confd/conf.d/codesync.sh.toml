@@ -1,6 +1,6 @@
 [template]
-src = "app-lsyncd.conf.tmpl"
-dest = "/root/codesync.sh"
+src = "codesync.sh.tmpl"
+dest = "/root/codesync2.sh"
 uid = 0
 gid = 0
 mode = "0644"

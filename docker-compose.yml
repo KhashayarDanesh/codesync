@@ -1,0 +1,13 @@
+#Sample Docker Compose
+version: '3.3'
+
+services:
+   lsyncd:
+     image: khashayardanesh/codesync:beta5
+     volumes:
+     - ./project:/Project
+     - ./project2:/Project2
+     # when Source dir is added, lsyncd automatically creates target dir in case it doesn't exist
+     restart: always
+     environment:
+             SYNC_BLOCK_JSON: '{"syncblock":[{"source": "/project-a-source","target": "/project-a-target","owner_and_group": "root:root","access_modes": "755","interval": "2"},{"source": "/project-b-source","target": "/project-b-target","owner_and_group": "root:root","access_modes": "755","interval": "2"}]}'
