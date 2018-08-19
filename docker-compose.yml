@@ -2,7 +2,7 @@
 version: '3.3'
 
 services:
-   lsyncd:
+   codesyncd:
      image: khashayardanesh/codesync:beta5
      volumes:
      - ./project:/Project

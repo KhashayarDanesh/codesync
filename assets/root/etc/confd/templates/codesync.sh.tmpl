@@ -1,13 +1,15 @@
-source={{getenv "SYNC_SOURCE" (getv "/codesync/sync/source" "/Project-A")}}
+{{$data := json (getenv "SYNC_BLOCK_JSON")}}
+{{range $data.syncblock}}
+   source= {{.source}}
+   target= {{.target}}
+   owner_and_group= {{.owner_and_group}}
+   access_modes= {{.access_modes}}
+   interval={{.interval}}
+   
+   while inotifywait -r -e modify,create,delete $source ; do
+      rsync -avz $source $target
+      chmod -R $target/
+      chown -hR $target/
+   done
 
-target={{getenv "SYNC_TARGET" (getv "/codesync/sync/target" "/Project-A-Target")}}
-
-ownership_mode={{getenv "TARGET_OWNERSHIP" (getv "/codesync/sync/target/ownership" "755")}}
-
-owner_and_group={{getenv "TARGET_OWNER_AND_GROUP" (getv "/codesync/sync/target/ownerandgroup" "root:root")}}
-
-while inotifywait -r -e modify,create,delete $source ; do
-    rsync -avz $source $target
-    chmod -R $target/
-    chown -hR $target/
-done
+{{end}}
