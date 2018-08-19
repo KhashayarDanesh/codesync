@@ -1,6 +1,6 @@
 [template]
 src = "codesync.sh.tmpl"
-dest = "/root/codesync2.sh"
+dest = "/root/codesync.sh"
 uid = 0
 gid = 0
 mode = "0644"
