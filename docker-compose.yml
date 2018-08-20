@@ -3,11 +3,14 @@ version: '3.3'
 
 services:
    codesyncd:
-     image: khashayardanesh/codesync:beta5
+     image: khashayardanesh/codesync:beta15
      volumes:
-     - ./project:/Project
-     - ./project2:/Project2
+     - ./project:/project_a_source
+     - ./project2:/project_b_source
+     - ./project-target:/project_a_target
+     - ./project2-target:/project_b_target
+
      # when Source dir is added, lsyncd automatically creates target dir in case it doesn't exist
      restart: always
      environment:
-             SYNC_BLOCK_JSON: '{"syncblock":[{"source": "/project-a-source","target": "/project-a-target","owner_and_group": "root:root","access_modes": "755","interval": "2"},{"source": "/project-b-source","target": "/project-b-target","owner_and_group": "root:root","access_modes": "755","interval": "2"}]}'
+             SYNC_BLOCK_JSON: '{"syncblock":[{"name": "project_a","source": "/project_a_source","target": "/project_a_target","owner_and_group": "1000:1000","access_modes": "755","interval": "2"},{"name": "project_b","source": "/project_b_source","target": "/project_b_target","owner_and_group": "1000:1000","access_modes": "755","interval": "2"}]}'

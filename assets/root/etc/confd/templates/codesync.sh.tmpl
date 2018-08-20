@@ -1,15 +1,16 @@
 {{$data := json (getenv "SYNC_BLOCK_JSON")}}
 {{range $data.syncblock}}
-   source= {{.source}}
-   target= {{.target}}
-   owner_and_group= {{.owner_and_group}}
-   access_modes= {{.access_modes}}
-   interval={{.interval}}
-   
-   while inotifywait -r -e modify,create,delete $source ; do
-      rsync -avz $source $target
-      chmod -R $target/
-      chown -hR $target/
-   done
-
+{{.name}}_source={{.source}}
+{{.name}}_target={{.target}}
+{{.name}}_owner_and_group={{.owner_and_group}}
+{{.name}}_access_modes={{.access_modes}}
+{{.name}}_interval={{.interval}}
+while inotifywait -r -e modify,create,delete ${{.name}}_source ; do
+  rsync -razvh ${{.name}}_source/ ${{.name}}_target/
+#  chmod -R ${{.name}}_access_modes ${{.name}}_target/
+  chown -hR ${{.name}}_owner_and_group ${{.name}}_target/
+done&
+while inotifywait -r -e modify,create,delete ${{.name}}_target ; do
+  rsync -razvh ${{.name}}_target/ ${{.name}}_source/
+done&
 {{end}}

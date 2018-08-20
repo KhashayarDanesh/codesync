@@ -3,7 +3,7 @@ src = "codesync.sh.tmpl"
 dest = "/root/codesync.sh"
 uid = 0
 gid = 0
-mode = "0644"
+mode = "0755"
 keys = [
   "codesync"
 ]
