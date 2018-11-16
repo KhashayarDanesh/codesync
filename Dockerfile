@@ -1,5 +1,6 @@
 FROM dockage/confd:alpine3.8
-MAINTAINER Khashayar Danesh <khashayar.danesh@gmail.com>
+
+LABEL MAINTAINER="Khashayar Danesh <khashayar.danesh@gmail.com>"
 
 LABEL org.label-schema.name="codesync" \
         org.label-schema.vendor="Dockage" \
@@ -11,3 +12,4 @@ COPY assets/root/ /
 
 RUN apk --no-cache --update add inotify-tools rsync
 
+CMD [ "sh /root/codesync.sh" ]

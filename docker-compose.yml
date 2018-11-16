@@ -3,7 +3,7 @@ version: '3.3'
 
 services:
    codesyncd:
-     image: khashayardanesh/codesync:beta15
+     image: kdanesh/codesync:latest
      volumes:
      - ./project:/project_a_source
      - ./project2:/project_b_source
