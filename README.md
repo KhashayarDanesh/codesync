@@ -3,6 +3,9 @@
 Based on [Dockage/Confd](https://github.com/dockage/confd)
 A Docker image with a simple Script that keeps directories in sync with custom ownership and modes.
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/kdanesh/codesync.svg)](https://hub.docker.com/kdanesh/codesync) [![Docker Stars](https://img.shields.io/docker/stars/dockage/confd.svg?style=flat)](https://hub.docker.com/r/dockage/confd/) [![Docker Build Status](https://img.shields.io/docker/build/dockage/confd.svg)](https://hub.docker.com/r/dockage/confd/) [![Docker Automated build](https://img.shields.io/docker/automated/dockage/confd.svg)](https://hub.docker.com/r/dockage/confd/)
+
+
 ## What does this image exactly do
 
 Takes a source folder and watches for changes with `inotify` package, then syncs the content to destination folder with desired ownership and modes.
@@ -18,3 +21,8 @@ Also the configuration is passed via a json, you can add the following block to 
 ```json
 {"name": "project_a","source": "/project_a_source","target": "/project_a_target","owner_and_group": "1000:1000","access_modes": "755","interval": "2"}
 ```
+
+for getting the image you can simply run `docker pull kdanesh/codesync`.
+
+also there's a sample docker-compse wich you can get up and running with typing 
+`docker-compose up -d` in project folder or if you want the image itself you can have a look at its page in [Dockerhub/kdanesh](https://hub.docker.com/r/kdanesh/codesync/)
