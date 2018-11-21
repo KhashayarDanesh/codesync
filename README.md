@@ -3,7 +3,7 @@
 Based on [Dockage/Confd](https://github.com/dockage/confd)
 A Docker image with a simple Script that keeps directories in sync with custom ownership and modes.
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/kdanesh/codesync.svg)](https://hub.docker.com/kdanesh/codesync) [![Docker Stars](https://img.shields.io/docker/stars/dockage/confd.svg?style=flat)](https://hub.docker.com/r/dockage/confd/) [![Docker Build Status](https://img.shields.io/docker/build/dockage/confd.svg)](https://hub.docker.com/r/dockage/confd/) [![Docker Automated build](https://img.shields.io/docker/automated/dockage/confd.svg)](https://hub.docker.com/r/dockage/confd/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/kdanesh/codesync.svg)](https://hub.docker.com/kdanesh/codesync) [![Docker Stars](https://img.shields.io/docker/stars/kdanesh/codesync.svg?style=flat)](https://hub.docker.com/r/kdanesh/codesync) [![Docker Build Status](https://img.shields.io/docker/build/kdanesh/codesync.svg)](https://hub.docker.com/r/kdanesh/codesync) [![Docker Automated build](https://img.shields.io/docker/automated/kdanesh/codesync.svg)](https://hub.docker.com/r/kdanesh/codesync)
 
 
 ## What does this image exactly do
